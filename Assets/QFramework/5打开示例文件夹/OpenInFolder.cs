@@ -1,8 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
-public class OpenInFolder
+#endif
+namespace QFramework
 {
+    public class OpenInFolder
+    {
+#if UNITY_EDITOR
+        [MenuItem("QFramework/5.打开文件夹")]
+        private static void MenuClicked()
+        {
+            Application.OpenURL("file:///" + Application.dataPath);
+        }
+#endif
+    }
 
 }
